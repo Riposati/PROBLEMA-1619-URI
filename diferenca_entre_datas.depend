@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1446522755 source:c:\users\gurip_000\desktop\diferenca_entre_datas\main.c
+	<stdio.h>
+	<stdlib.h>
+
