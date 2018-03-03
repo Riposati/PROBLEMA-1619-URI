@@ -47,56 +47,36 @@ int assumeValoresMes(int i, int ano){
         }
     }
 
-    if(i==3){
-
+    if(i==3)
         i = marco;
-    }
 
-    if(i==4){
-
+    if(i==4)
         i = abril;
-    }
 
-    if(i==5){
-
+    if(i==5)
         i = maio;
-    }
 
-    if(i==6){
-
+    if(i==6)
         i = junho;
-    }
 
-    if(i==7){
-
+    if(i==7)
         i = julho;
-    }
 
-    if(i==8){
-
+    if(i==8)
         i = agosto;
-    }
 
-    if(i==9){
-
+    if(i==9)
         i = setembro;
-    }
 
-    if(i==10){
-
+    if(i==10)
         i = outubro;
-    }
 
-    if(i==11){
-
+    if(i==11)
         i = novembro;
-    }
 
-    if(i==12){
-
+    if(i==12)
         i = dezembro;
-    }
-
+    
     return i;
 }
 
@@ -124,10 +104,6 @@ int diferencaAnosIguaisMesesDiferentes(int anoFinal,int anoInicial,int mesFinal,
 
         diaInicial = aux3;
         mesInicial = aux2;
-
-        /*char traco = '-';
-        printf("%d%c%d%c%d\n",anoFinal,traco,mesFinal,traco,diaFinal);
-        printf("%d%c%d%c%d\n",anoInicial,traco,mesInicial,traco,diaInicial);*/
     }
 
     diferencaMeses = mesFinal + 1;
@@ -136,13 +112,10 @@ int diferencaAnosIguaisMesesDiferentes(int anoFinal,int anoInicial,int mesFinal,
 
         i = diferencaMeses;
         totalDiferencaDiasEntreMeses += assumeValoresMes(i,anoFinal);
-        //printf("i = %d\n",i);
         diferencaMeses++;
     }
 
     qtdDiasFaltamParaFimMesInicial = assumeValoresMes(mesFinal,anoFinal) - diaFinal;
-
-    //printf("qtdDiasFaltam = %d\n",qtdDiasFaltamParaFimMesInicial);
 
     total = qtdDiasFaltamParaFimMesInicial + totalDiferencaDiasEntreMeses + diaInicial;
 
@@ -155,7 +128,7 @@ int analisaDataFinal(int anoFinal,int mesFinal,int diaFinal){
     int diferencaMeses,sum=0;
 
     /// parte da data final, quantidade de dias que faltam pro fim do mes - tam mes +
-    /// dias atÈ o final deste ano e verificar se È bissexto
+    /// dias at√© o final deste ano e verificar se √© bissexto
 
     int tamMes = assumeValoresMes(mesFinal,anoFinal);
 
@@ -172,8 +145,6 @@ int analisaDataFinal(int anoFinal,int mesFinal,int diaFinal){
 
     total += sum;
 
-    ///printf("temos para finalizar este ano %d dias \n",total);
-
     return total;
 }
 
@@ -182,7 +153,7 @@ int analisaDataInicial(int anoInicial,int mesInicial,int diaInicial){
     int total=0,totalDiferencaDiasEntreMeses=0,qtdDiasFaltamParaFimMesInicial=0;
     int i=1,diferencaMeses,sum=0;
 
-    /// parte da data inicial, quantidade de dias passados j· no ano + qtd de dias j· passados no mes que quero verificando se È bissexto
+    /// parte da data inicial, quantidade de dias passados j√° no ano + qtd de dias j√° passados no mes que quero verificando se √© bissexto
     /// porque fevereiro bissexto tem 29 dias
 
     while(i < mesInicial){
@@ -193,8 +164,6 @@ int analisaDataInicial(int anoInicial,int mesInicial,int diaInicial){
     }
 
     total = sum + diaInicial;
-
-    ///printf("temos ja passados deste ano %d dias \n",total);
 
     return total;
 }
@@ -222,14 +191,11 @@ int analisaAnosIntervalo(int anoFinal,int anoInicial){
         anoFinal++;
     }
 
-    ///printf("quantidade de dias entre esses anos = %d\n",sum);
-
     return sum;
 }
 
 int main()
 {
-
     int anoFinal;
     int anoInicial;
     int mesFinal;
@@ -246,9 +212,6 @@ int main()
         scanf("%d %c %d %c %d",&anoFinal,&traco,&mesFinal,&traco,&diaFinal);
         scanf("%d %c %d %c %d",&anoInicial,&traco,&mesInicial,&traco,&diaInicial);
 
-        /*printf("%d%c%d%c%d\n",anoFinal,traco,mesFinal,traco,diaFinal);
-        printf("%d%c%d%c%d\n",anoInicial,traco,mesInicial,traco,diaInicial);*/
-
         if(diaFinal==diaInicial && anoFinal==anoInicial && mesFinal==mesInicial){ /// tudo igual , OKS
 
             resposta = 0;
@@ -264,7 +227,7 @@ int main()
             resposta = diferencaAnosIguaisMesesDiferentes(anoFinal,anoInicial,mesFinal,mesInicial,diaFinal,diaInicial);
         }
 
-        if(anoFinal!=anoInicial){ /// ano igual e meses diferentes
+        if(anoFinal!=anoInicial){ /// anos diferentes e meses diferentes
 
             if(anoFinal > anoInicial){ /// serve para trocar a ordem das datas caso a primeira venha maior
                 int aux2 = mesFinal;
@@ -278,12 +241,8 @@ int main()
                 diaInicial = aux3;
                 mesInicial = aux2;
                 anoInicial = aux;
-
-                /*char traco = '-';
-                printf("%d%c%d%c%d\n",anoFinal,traco,mesFinal,traco,diaFinal);
-                printf("%d%c%d%c%d\n",anoInicial,traco,mesInicial,traco,diaInicial);*/
             }
-            //resposta = diferencaAnosDiferentesMesesDiferentes(anoFinal,anoInicial,mesFinal,mesInicial,diaFinal,diaInicial);
+            
             int a = analisaDataFinal(anoFinal,mesFinal,diaFinal);
             int b = analisaDataInicial(anoInicial,mesInicial,diaInicial);
             int c = analisaAnosIntervalo(anoFinal,anoInicial);
